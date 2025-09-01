@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promociones Dentales | Luxury Dental Studio</title>
+  <style>
+    .tag-list {
+            width: 45rem;
+            margin: 0 auto;
+            font-family: "Montserrat";
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .inner{
+            display: flex;
+            gap: 2rem;
+            animation: loop 20s linear infinite;
+            padding: 0;
+            justify-content: flex-start;
+            width: max-content;
+        }
+
+        .tag{
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0 0.2rem;
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            background-color: #318ecb;
+            padding: 0.7rem 1rem;
+            border-radius: 0.4rem;
+        }
+
+        .tag span{
+            font-size: 1.2rem;
+            color: #e2e8f0; /* Cambiado para mejor contraste */
+        }
+
+
+        @keyframes loop{
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+  </style>
+
+</head>
+<body>
+  <div class ="tag-list">
+        <div class = "inner">
+            <div class ="tag"><span>•</span>
+            LIMPIEZA DENTAL -30%</div>
+            <div class ="tag"><span>•</span>
+            BLANQUEAMIENTO DENTAL -25%</div>
+            <div class ="tag"><span>•</span>
+            REVISION COMPLETA -20%</div>
+            <!-- Elementos duplicados para el efecto continuo -->
+            <div class ="tag"><span>•</span>
+            LIMPIEZA DENTAL -30%</div>
+            <div class ="tag"><span>•</span>
+            BLANQUEAMIENTO DENTAL -25%</div>
+            <div class ="tag"><span>•</span>
+            REVISION COMPLETA -20%</div>
+
+        </div>
+  </div>
+</body>
+</html>

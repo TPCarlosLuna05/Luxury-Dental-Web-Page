@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipo Médico | Especialistas Dentales en Luxury Dental Studio</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-secondary: #C5A028;
+            --gold-accent: #FFD700;
+            --gold-light: #F4E7BE;
+            --gold-dark: #996515;
+            --gold-gradient: linear-gradient(135deg, 
+                var(--gold-primary), 
+                var(--gold-secondary) 50%, 
+                var(--gold-dark));
+            --gold-shine: linear-gradient(45deg,
+                rgba(212, 175, 55, 0.15),
+                rgba(255, 215, 0, 0.15),
+                rgba(153, 101, 21, 0.15));
+        }
+
+        header {
+            background: var(--gold-gradient);
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+        .intro-equipo {
+    font-family: 'Playfair Display', serif; /* O sans-serif */
+    font-size: 20px; /* O el tamaño que elijas */
+    font-weight: bold;
+    line-height: 1.6; /* 1.6 veces el tamaño de la fuente */
+    color: #555; /* Un gris oscuro suave */
+    text-align: center; /* O left, según prefieras el diseño */
+    max-width: 700px; /* Limita el ancho máximo */
+    margin: 20px auto; /* Centra el bloque de texto y le da margen arriba/abajo */
+        }
+        .clinica-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+        }
+
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #21588E;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f9fb;
+        }
+
+        .doctors-container {
+            padding: 10px 40px; /* Reducido de 20px a 10px */
+            background: none;
+            min-height: calc(100vh - 60px - 200px); /* Ajustado considerando nuevo padding */
+        }
+
+        .doctors-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #525252;
+            text-align: center;
+            margin: 10px 0 20px 0; /* Reducido el margen superior e inferior */
+            position: relative;
+            padding-bottom: 10px; /* Reducido de 15px a 10px */
+        }
+
+        .doctors-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #21588E, #2FA0AD);
+        }
+
+        .doctors-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px; /* Reducido padding vertical a 0 */
+        }
+
+        .doctor-card {
+            width: 300px; /* Ancho fijo para la tarjeta */
+            margin: 0 auto; /* Centrado horizontal */
+            background: linear-gradient(135deg, white, var(--gold-light));
+            border: 1px solid rgba(33, 88, 142, 0.1);
+            border-left: 2px solid var(--gold-primary);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .doctor-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #21588E, #2FA0AD);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .doctor-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(33, 88, 142, 0.2);
+        }
+
+        .doctor-image {
+            width: 100%;
+            height: 350px; /* Aumentado */
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            border-bottom: 3px solid #21588E;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .doctor-card:hover .doctor-image {
+            transform: scale(1.05);
+        }
+
+        .doctor-info {
+            padding: 25px;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .doctor-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: #21588E;
+            margin: 0 0 10px 0;
+            border-bottom: 2px solid #2FA0AD;
+            padding-bottom: 10px;
+            width: fit-content;
+        }
+
+        .doctor-specialty {
+            color: #2FA0AD;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #21588E, #2FA0AD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .doctor-description {
+            color: #666;
+            line-height: 1.6;
+            padding: 10px 0;
+            font-size: 0.95em;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            margin-top: 10px;
+            display: none;
+        }
+
+        .doctor-button {
+            display: inline-block;
+            background: var(--gold-gradient);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            width: 100%;
+        }
+
+        .doctor-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 88, 142, 0.3);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .popup-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #21588E;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #f5f9fb;
+            color: #21588E;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #e0e9ef;
+            transform: translateX(5px);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        .popup-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid #21588E;
+            box-shadow: 0 4px 12px rgba(33, 88, 142, 0.2);
+        }
+
+        .popup-content {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .popup-title {
+            color: #21588E;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .popup-specialty {
+            color: #2FA0AD;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .popup-description {
+            line-height: 1.6;
+            color: #666;
+            text-align: left;
+        }
+
+        footer {
+            background: linear-gradient(45deg, #333333, #444444);
+            color: #ffffff;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: var(--gold-gradient);
+        }
+
+        .footer-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            color: #ffffff;
+        }
+
+        .footer-contact {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .home-icon:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .contact-icon {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-icon:hover {
+            transform: translateY(-50%) scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (min-width: 1200px) {
+            .doctors-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* --- FOOTER NUEVO --- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0 10px 0;
+            background: none;
+        }
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #fff;
+        }
+        .logo-col {
+            align-items: flex-start;
+        }
+        .footer-logo {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .footer-slogan {
+            font-size: 1em;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .footer-heading {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+            font-size: 1.1em;
+        }
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-nav li {
+            margin-bottom: 8px;
+        }
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-nav a:hover {
+            color: #ffd700;
+        }
+        .footer-contact-item {
+            margin-bottom: 7px;
+            font-size: 0.98em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-contact-item a:hover {
+            color: #ffd700;
+        }
+        .footer-social-links {
+            display: flex;
+            gap: 18px;
+        }
+        .footer-social {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.2s;
+        }
+        .footer-social:hover {
+            color: #ffd700;
+        }
+        .footer-bar {
+            text-align: center;
+            color: #fff;
+            background: none;
+            padding: 15px 0 0 0;
+            font-size: 1em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 10px;
+        }
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 30px 0 5px 0;
+            }
+            .footer-col {
+                align-items: flex-start;
+            }
+        }
+        .header-logo {
+            height: 48px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-icon">
+            <img src="logo.jpg" alt="Logo Luxury Dental Studio" class="header-logo">
+        </a>
+        <h1 class="clinica-title">Luxury Dental Studio</h1>
+        <div class="contact-icon" id="contactButton">
+            <i class="fas fa-headset"></i>
+            <span>Contáctanos</span>
+        </div>
+        <div class="popup" id="contactPopup">
+            <div class="popup-close" id="closePopup">&times;</div>
+            <h3><i class="fas fa-address-book"></i> Nuestras Redes Sociales</h3>
+            <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank">
+                <i class="fab fa-instagram fa-lg"></i> @luxurydentalstudio_
+            </a>
+            <a href="https://www.facebook.com/share/16Trm61wMM/" class="social-link" target="_blank">
+                <i class="fab fa-facebook fa-lg"></i> Luxury Dental Studio
+            </a>
+            <a href="https://wa.me/528337558734" target="_blank" class="social-link">
+                <i class="fab fa-whatsapp fa-lg"></i> 833 755 8734
+            </a>
+        </div>
+    </header>
+
+    <div class="doctors-container">
+        <h2 class="doctors-title">Profesionales con Pasión:</h2>
+        <p class="intro-equipo">En Luxury Dental Studio, tu sonrisa es nuestra inspiración. Conoce a la Dra. Daniela de la Rosa, una profesional cuya pasión y experiencia son el pilar de nuestra atención. Aquí te la presentamos. Ella trabaja de la mano con un equipo de especialistas y personal dedicado, todos comprometidos en brindarte una experiencia dental de lujo y confort en un ambiente diseñado para tu bienestar. Próximamente, conocerás a todos los miembros de nuestro equipo.</p>
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <img src="daniela.png" alt="Dra. Rodriguez" class="doctor-image">
+                <div class="doctor-info">
+                    <h3 class="doctor-name">Dra. Daniela de la Rosa</h3>
+                    <p class="doctor-specialty">Medica cirujana dentista</p>
+                    <button class="doctor-button" onclick="showDoctorInfo('rodriguez')">Más Información</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popups para cada doctor -->
+    <div id="popup-rodriguez" class="popup">
+        <div class="popup-close" onclick="closePopup('rodriguez')">&times;</div>
+        <img src="daniela.png" alt="Dra. Rodriguez" class="popup-image">
+        <h3 class="popup-title">Dra. Ana Rodriguez</h3>
+        <p class="popup-specialty">Medica cirujana dentista</p>
+        <div class="popup-content">
+            <p class="popup-description">Un profesional cualificado que no solo se especializa en dientes, encías y la boca, sino que también es un experto en apoyar, reconfortar y calmar los nervios y los gritos. Una persona que hace las cosas con una sonrisa y que seguro que llega a la raíz del problema. Alguien a quien te da alegría y pavor ver al mismo tiempo.</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        function showDoctorInfo(doctorId) {
+            document.getElementById(`popup-${doctorId}`).style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup(doctorId) {
+            document.getElementById(`popup-${doctorId}`).style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Cerrar popup al hacer clic en el overlay
+        document.getElementById('overlay').addEventListener('click', function() {
+            const popups = document.querySelectorAll('.popup');
+            popups.forEach(popup => popup.style.display = 'none');
+            this.style.display = 'none';
+        });
+
+        // Cerrar popup con la tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const popups = document.querySelectorAll('.popup');
+                popups.forEach(popup => popup.style.display = 'none');
+                document.getElementById('overlay').style.display = 'none';
+            }
+        });
+
+        // Popup de contacto igual que en index.html
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactButton = document.getElementById('contactButton');
+            const closePopup = document.getElementById('closePopup');
+            const overlay = document.getElementById('overlay');
+            const contactPopup = document.getElementById('contactPopup');
+            const footerContactLink = document.getElementById('footerContactLink');
+
+            contactButton.addEventListener('click', function() {
+                overlay.style.display = 'block';
+                contactPopup.style.display = 'block';
+            });
+
+            if (footerContactLink) {
+                footerContactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    overlay.style.display = 'block';
+                    contactPopup.style.display = 'block';
+                });
+            }
+
+            closePopup.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+
+            overlay.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+        });
+    </script>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col logo-col">
+                <img src="logo.jpg" alt="Logo Luxury Dental Studio" class="footer-logo" style="max-width: 80px; margin-bottom: 10px;">
+                <div class="footer-brand">Luxury Dental Studio</div>
+                <div class="footer-slogan">Tu Sonrisa, Nuestra Prioridad.</div>
+            </div>
+            <div class="footer-col nav-col">
+                <div class="footer-heading">Navegación</div>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="procedimientos.html">Servicios</a></li>
+                    <li><a href="doctores.html">Nuestro Equipo</a></li>
+                    <li><a href="#" id="footerContactLink">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <div class="footer-heading">Contacto</div>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Blv Loma Real 515, Lomas del Chairel, Tampico Tamps.</div>
+                <div class="footer-contact-item"><a href="https://wa.me/528337558734" target="_blank"><i class="fab fa-whatsapp"></i> 8337558734</a></div>
+                <div class="footer-heading" style="margin-top:18px;">Horario de Atención</div>
+                <div class="footer-contact-item">L-V: 10:00 AM - 2:00 PM y 4:00 PM - 8:00 PM</div>
+                <div class="footer-contact-item">Sáb: 10:00 AM - 4:00 PM</div>
+                <div class="footer-contact-item">Dom: Urgencias</div>
+            </div>
+            <div class="footer-col social-col">
+                <div class="footer-heading">Síguenos</div>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/share/16Trm61wMM/" target="_blank" class="footer-social"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-social"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            © 2025 Luxury Dental Studio. Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+</html>

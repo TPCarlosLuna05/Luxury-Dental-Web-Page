@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luxury Dental Studio | Clínica Dental de Excelencia en Tampico</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-primary: #D4AF37; /* Dorado más refinado */
+            --gold-secondary: #C5A028; /* Dorado más profundo */
+            --gold-accent: #FFD700; /* Dorado brillante para acentos */
+            --gold-light: #F4E7BE; /* Dorado pálido para fondos */
+            --gold-dark: #996515; /* Dorado oscuro para contraste */
+            --gold-gradient: linear-gradient(135deg, 
+                var(--gold-primary), 
+                var(--gold-secondary) 50%, 
+                var(--gold-dark));
+            --gold-shine: linear-gradient(45deg,
+                rgba(212, 175, 55, 0.15),
+                rgba(255, 215, 0, 0.15),
+                rgba(153, 101, 21, 0.15));
+            --marble-overlay: radial-gradient(
+                circle at center,
+                rgba(255, 215, 0, 0.05) 0%,
+                rgba(212, 175, 55, 0.05) 25%,
+                transparent 60%
+            );
+        }
+
+        /* Estilo para centrar todos los h3 */
+        h3 {
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(135deg, 
+                var(--gold-primary),
+                var(--gold-secondary) 50%,
+                var(--gold-dark));
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .contact-icon, .home-icon {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .promocion-card {
+            background: linear-gradient(135deg, 
+                white,
+                var(--gold-light));
+            border-left: 2px solid var(--gold-primary);
+        }
+
+        .footer-links a {
+            background: linear-gradient(135deg, 
+                var(--gold-primary),
+                var(--gold-secondary));
+        }
+
+        .tag-list {
+            background: linear-gradient(135deg,
+                var(--gold-primary),
+                var(--gold-secondary) 50%,
+                var(--gold-dark));
+        }
+
+        .tag {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .promocion-button, .cita-button {
+            background: linear-gradient(135deg,
+                var(--gold-primary),
+                var(--gold-secondary));
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .historia-title, .promociones-title, .ubicacion-title {
+            background: linear-gradient(45deg,
+                var(--gold-primary),
+                var(--gold-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .welcome-text {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        header {
+            background: var(--gold-gradient);
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+
+        .clinica-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 300; /* Cambiado de 600 a 300 para hacerlo más delgado */
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+        }
+
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #21588E;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-icon:hover {
+            transform: translateY(-50%) scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        .popup-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #21588E;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #f5f9fb;
+            color: #21588E;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #e0e9ef;
+            transform: translateX(5px);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .content {
+            display: flex;
+            min-height: 40vh; /* Reducido de 60vh */
+            background: linear-gradient(135deg, #f8f8f8, #ffffff);
+            padding: 30px 0; /* Reducido de 50px */
+        }
+
+        .column {
+            width: 50%;
+            height: auto; /* Cambiado de 40vh a auto */
+            min-height: 35vh; /* Reducido de 50vh */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            padding: 30px 20px; /* Reducido de 60px 40px */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            gap: 20px; /* Agregado espacio entre elementos */
+        }
+
+        .column::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg,
+                rgba(33,88,142,0.05),
+                rgba(47,160,173,0.05));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .column:hover::before {
+            opacity: 1;
+        }
+
+        .column::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #21588E, #2FA0AD);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .column:hover::after {
+            transform: scaleX(1);
+        }
+
+        .column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.8s;
+        }
+
+        .column:hover::before {
+            left: 100%;
+        }
+
+        .column h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em; /* Reducido de 2.2em */
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            text-align: center;
+            margin: 10px 0; /* Reducido de 15px */
+            padding: 0 20px;
+        }
+
+        .column:hover h2 {
+            transform: scale(1.1);
+        }
+
+        .column img {
+            transition: transform 0.5s ease;
+            width: 120px; /* Reducido de 180px */
+            height: 120px; /* Reducido de 180px */
+            object-fit: contain;
+            margin: 10px 0; /* Reducido de 20px */
+        }
+
+        .column:hover img {
+            transform: scale(1.1);
+        }
+
+        .left {
+            background-color: #f0f0f0;
+        }
+
+        .left:hover {
+            background: linear-gradient(135deg, #2874A6, #21588E);
+            color: white;
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(33, 88, 142, 0.3);
+        }
+
+        .right {
+            background-color: #e0e0e0;
+        }
+
+        .right:hover {
+            background: linear-gradient(135deg, #3498DB, #2874A6);
+            color: white;
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.3);
+        }
+
+        .left img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        .right img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        .right img, .right h2 {
+            position: relative;
+            top: 30px;
+        }
+
+        .column-button {
+            padding: 10px 20px; /* Reducido de 12px 25px */
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 15px; /* Reducido de 30px */
+            position: relative; /* Asegura que el botón se mantenga visible */
+            z-index: 2;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            color: #21588E;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .column:hover .column-button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .column-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .historia-section {
+            min-height: 50vh; /* Cambiado de 60vh a 50vh */
+            padding: 40px; /* Reducido de 100px 40px a 40px */
+            margin-top: -20px; /* Añadido margen negativo para subirlo */
+            background: linear-gradient(to bottom, #f8f8f8, #ffffff);
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 40px;
+            justify-content: flex-start;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: none;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #f8f8f8, #e8f4f8);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .historia-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,...') center/50px 50px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .historia-section.visible {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .historia-title {
+            margin-top: 40px;
+            color: #1B4F72;
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: left;
+            margin-left: 40px;
+            border-bottom: 2px solid #21588E;
+            padding-bottom: 10px;
+            width: fit-content;
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .historia-title::before {
+            content: '●';
+            color: #3498DB;
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+
+        .historia-text {
+            max-width: 800px;
+            margin-left: 40px;
+            line-height: 1.6;
+            color: #333;
+            font-size: 1.1em;
+            text-align: justify;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .historia-content {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 243, 226, 0.95));
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.5s ease;
+            border-left: 4px solid var(--primary-gold);
+            background: linear-gradient(135deg, rgba(27,79,114,0.05), rgba(52,152,219,0.05));
+        }
+
+        .historia-section:hover .historia-content {
+            transform: perspective(1000px) rotateY(-2deg);
+        }
+
+        .historia-image {
+            width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin-right: 40px;
+            margin-top: 40px; /* Añadido margen superior */
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.8s ease-out;
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: all 0.5s ease;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .historia-section.visible .historia-image {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .historia-section:hover .historia-image {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .historia-image:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        footer {
+            background: linear-gradient(45deg, #333333, #444444);
+            color: #ffffff;
+            padding: 40px 0;
+            margin-top: 0; /* Cambiado de 40px a 0 */
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
+        }
+
+        .footer-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            color: #ffffff;
+        }
+
+        .footer-contact {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .ubicacion-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #ffffff, #f0f7fa);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ubicacion-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,...') center/50px 50px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .ubicacion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #21588E;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+        }
+
+        .ubicacion-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #21588E, #2FA0AD);
+        }
+
+        .mapa-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.5s ease;
+            border: none;
+        }
+
+        .mapa-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(33,88,142,0.1), rgba(47,160,173,0.1));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .mapa-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #21588E, #2FA0AD);
+        }
+
+        .mapa-container:hover {
+            transform: perspective(1000px) rotateX(2deg) translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .mapa-container iframe {
+            display: block;
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        .cita-section {
+            text-align: left;
+            padding: 20px 40px;
+            background: none;
+            margin: 0;
+        }
+
+        .cita-button {
+            font-weight: bold;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(33, 88, 142, 0.3);
+            margin: 20px 0; /* Añadido margen al botón */
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 15px 30px rgba(33,88,142,0.3);
+        }
+
+        .cita-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .cita-button:hover:before {
+            left: 100%;
+        }
+
+        .cita-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(33, 88, 142, 0.3);
+        }
+
+        .cita-button:active {
+            transform: translateY(-1px);
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .home-icon:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .welcome-section {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .welcome-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+            transform: scale(1.1);
+            transition: transform 10s ease;
+        }
+
+        .welcome-section:hover .welcome-image {
+            transform: scale(1.2);
+        }
+
+        .welcome-text {
+            position: relative;
+            color: white;
+            text-align: center;
+            max-width: 700px;
+            padding: 20px;
+            z-index: 1;
+            background: rgba(184, 134, 11, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            background: rgba(184,134,11,0.15);
+            box-shadow: 0 8px 32px rgba(184,134,11,0.2);
+        }
+
+        .welcome-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            background: none;
+        }
+
+        .welcome-text p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .welcome-text .cita-button {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #FFD700, #DAA520);
+            color: #000;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(218, 165, 32, 0.4);
+            text-shadow: none;
+            letter-spacing: 1px;
+        }
+
+        .welcome-text .cita-button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #FFD700, #B8860B);
+            box-shadow: 0 12px 25px rgba(218, 165, 32, 0.6);
+        }
+
+        .promociones-section {
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f7fa, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promociones-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: nowrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .promocion-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 2px solid var(--primary-gold);
+        }
+
+        .promocion-titulo {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .precio-original {
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+
+        .precio-descuento {
+            font-size: 1.4em;
+            margin: 5px 0;
+        }
+
+        .promocion-descripcion {
+            font-size: 0.85em;
+            margin: 8px 0;
+            line-height: 1.3;
+        }
+
+        .promocion-button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .descuento-badge {
+            padding: 4px 8px;
+            font-size: 0.8em;
+            top: 10px;
+            right: 10px;
+        }
+
+        .promociones-section.visible {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .promociones-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #21588E;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(184,134,11,0.1);
+        }
+
+        .promociones-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .promocion-card {
+            background: linear-gradient(135deg, #fff, var(--marble-white));
+            position: relative;
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid #2874A6;
+            background: linear-gradient(135deg, #fff, var(--gold-pale));
+            border-left: 4px solid var(--gold-dark);
+        }
+
+        .promocion-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--marble-overlay);
+            opacity: 0.1;
+            border-radius: 20px;
+            background: var(--marble-pattern);
+            opacity: 0.8;
+            mix-blend-mode: overlay;
+            animation: shimmer 3s infinite linear;
+        }
+
+        .promocion-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .promocion-titulo {
+            font-size: 1.5em;
+            color: #21588E;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-dark);
+        }
+
+        .precio-original {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        .precio-descuento {
+            font-size: 2em;
+            color: #2FA0AD;
+            font-weight: bold;
+            margin: 10px 0;
+            color: var(--gold-dark);
+        }
+
+        .promocion-descripcion {
+            color: #666;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .promocion-button {
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            box-sizing: border-box;
+            background: var(--gold-gradient);
+        }
+
+        .promocion-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(33,88,142,0.3);
+            color: white; /* Mantiene el color del texto en blanco al hacer hover */
+            text-decoration: none; /* Evita el subrayado del enlace */
+        }
+
+        .descuento-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(231,76,60,0.3);
+        }
+        .tag-list {
+            width: 45rem;
+            margin: 10px auto; /* Reducido de 40px a 10px */
+            font-family: "Montserrat";
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(27,79,114,0.2);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background: var(--gold-gradient);
+        }
+
+        .tag-list::before,
+        .tag-list::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .tag-list::before {
+            left: 0;
+            background: linear-gradient(to right, #1B4F72, transparent);
+        }
+
+        .tag-list::after {
+            right: 0;
+            background: linear-gradient(to left, #1B4F72, transparent);
+        }
+
+        .tag-list::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .inner{
+            display: flex;
+            gap: 2rem;
+            animation: loop 20s linear infinite;
+            padding: 0;
+            justify-content: flex-start;
+            width: max-content;
+        }
+
+        .tag{
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0 0.2rem;
+            color: #ffffff;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
+            cursor: pointer; /* Añadir cursor pointer para indicar que es clickeable */
+            background: var(--gold-shimmer);
+            border: 1px solid rgba(218,165,32,0.3);
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .tag span{
+            font-size: 1.2rem;
+            color: #4FC3F7;
+            margin-right: 5px;
+            text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+            color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+
+        @keyframes loop{
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Agregar efecto de degradado en los bordes */
+        .tag-list::before,
+        .tag-list::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .tag-list::before {
+            left: 0;
+            background: linear-gradient(to right, var(--primary-gold), transparent);
+        }
+
+        .tag-list::after {
+            right: 0;
+            background: linear-gradient(to left, var(--primary-gold), transparent);
+        }
+
+        /* Nuevos colores y variables */
+        :root {
+            --primary-color: #2C3E50;
+            --secondary-color: #3498DB;
+            --accent-color: #E74C3C;
+            --gradient-primary: linear-gradient(135deg, #2C3E50, #3498DB);
+            --gradient-secondary: linear-gradient(135deg, #E74C3C, #F39C12);
+        }
+
+        /* Actualización del slider */
+        .tag-list {
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            padding: 15px 0; /* Reducido de 25px a 15px */
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tag:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Actualización de las tarjetas de promociones */
+        .promocion-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 20px;
+            padding: 40px;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .promocion-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .promocion-button {
+            background: var(--gradient-primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promocion-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .promocion-button:hover::after {
+            opacity: 1;
+            transform: rotate(45deg) translateX(-50%);
+        }
+
+        /* Mejora de la sección de bienvenida */
+        .welcome-text {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(0);
+            transition: all 0.4s ease;
+        }
+
+        .welcome-text:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Actualización de los botones principales */
+        .cita-button {
+            background: var(--gradient-secondary);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Mejora de las columnas de contenido */
+        .column {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .column:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            background: var(--gold-gradient);
+        }
+
+        /* Efectos de mármol mejorados */
+
+
+        @keyframes shimmer {
+            0% { background-position: -200% -200%; }
+            100% { background-position: 200% 200%; }
+        }
+
+        .welcome-text {
+            background: rgba(184,134,11,0.15);
+            border: 1px solid rgba(218,165,32,0.3);
+            box-shadow: 0 8px 32px rgba(184,134,11,0.2);
+        }
+
+        /* Efecto brillante para elementos interactivos */
+        .cita-button::before,
+        .promocion-button::before,
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(255,215,0,0.2),
+                transparent 50%
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(45deg) translateY(-100%); }
+            100% { transform: rotate(45deg) translateY(100%); }
+        }
+
+        :root {
+            --primary-gold: #B8860B;
+            --secondary-gold: #DAA520;
+            --light-gold: #FFD700;
+            --gold-pale: #F8F3E2;
+            --gold-gradient: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+        }
+
+        /* Eliminar efectos de sombreado y simplificar gradientes */
+        .tag-list {
+            background: var(--gold-gradient);
+            box-shadow: none;
+        }
+
+        .tag-list::before {
+            display: none;
+        }
+
+        .promocion-card {
+            background: white;
+            border-left: 2px solid var(--primary-gold);
+        }
+
+        .promocion-card::before {
+            display: none;
+        }
+
+        .historia-content {
+            background: white;
+            border-left: 2px solid var(--primary-gold);
+        }
+
+        .historia-content::before {
+            display: none;
+        }
+
+        .welcome-text {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: none;
+            box-shadow: none;
+        }
+
+        /* Eliminar efectos de brillo */
+        .cita-button::before,
+        .promocion-button::before,
+        .footer-links a::before {
+            display: none;
+        }
+
+        /* Simplificar animaciones */
+        @keyframes shimmer {
+            0%, 100% { transform: none; }
+        }
+
+        @keyframes shine {
+            0%, 100% { transform: none; }
+        }
+
+        /* Ajustar colores de botones y enlaces */
+        .cita-button,
+        .promocion-button,
+        .footer-links a {
+            background: var(--primary-gold);
+        }
+
+        /* Estilos para los modales */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            margin: 15% auto;
+            padding: 30px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        .modal h3 {
+            color: var(--gold-dark);
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .modal ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .modal ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .modal ul li:before {
+            content: "•";
+            color: var(--gold-primary);
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .modal p {
+            color: #666;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- FOOTER NUEVO --- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0 10px 0;
+            background: none;
+        }
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #fff;
+        }
+        .logo-col {
+            align-items: flex-start;
+        }
+        .footer-logo {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .footer-slogan {
+            font-size: 1em;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .footer-heading {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+            font-size: 1.1em;
+        }
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-nav li {
+            margin-bottom: 8px;
+        }
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-nav a:hover {
+            color: #ffd700;
+        }
+        .footer-contact-item {
+            margin-bottom: 7px;
+            font-size: 0.98em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-social-links {
+            display: flex;
+            gap: 18px;
+        }
+        .footer-social {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.2s;
+        }
+        .footer-social:hover {
+            color: #ffd700;
+        }
+        .footer-bar {
+            text-align: center;
+            color: #fff;
+            background: none;
+            padding: 15px 0 0 0;
+            font-size: 1em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 10px;
+        }
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 30px 0 5px 0;
+            }
+            .footer-col {
+                align-items: flex-start;
+            }
+        }
+        .footer-contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-contact-item a:hover {
+            color: #ffd700;
+        }
+      
+            .header-logo {
+            height: 48px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const historiaSection = document.querySelector('.historia-section');
+            const promocionesSection = document.querySelector('.promociones-section');
+
+            if (historiaSection) {
+                observer.observe(historiaSection);
+            }
+            if (promocionesSection) {
+                observer.observe(promocionesSection);
+            }
+
+            // Manejo del popup de contacto
+            const contactButton = document.getElementById('contactButton');
+            const closePopup = document.getElementById('closePopup');
+            const overlay = document.getElementById('overlay');
+            const contactPopup = document.getElementById('contactPopup');
+            const footerContactLink = document.getElementById('footerContactLink');
+
+            contactButton.addEventListener('click', function() {
+                overlay.style.display = 'block';
+                contactPopup.style.display = 'block';
+            });
+
+            if (footerContactLink) {
+                footerContactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    overlay.style.display = 'block';
+                    contactPopup.style.display = 'block';
+                });
+            }
+
+            closePopup.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+
+            overlay.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+        });
+    </script>
+
+    <!-- Modales para cada servicio -->
+    <div class="modal" id="modalLimpieza">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Limpieza Dental Profesional</h3>
+            <p>Nuestro servicio de limpieza dental incluye:</p>
+            <ul>
+                <li>Remoción de placa y sarro</li>
+                <li>Pulido dental profesional</li>
+                <li>Revisión de encías</li>
+                <li>Recomendaciones personalizadas</li>
+            </ul>
+            <p>Duración aproximada: 45 minutos</p>
+            <button class="modal-button" onclick="window.location.href='cita.html?servicio=limpieza'">Agendar Cita</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modalBlanqueamiento">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Blanqueamiento Dental</h3>
+            <p>Nuestro tratamiento de blanqueamiento incluye:</p>
+            <ul>
+                <li>Evaluación inicial del color dental</li>
+                <li>Blanqueamiento profesional con tecnología LED</li>
+                <li>Kit de mantenimiento para casa</li>
+                <li>Instrucciones post-tratamiento</li>
+            </ul>
+            <p>Duración aproximada: 1 hora</p>
+            <button class="modal-button" onclick="window.location.href='cita.html?servicio=blanqueamiento'">Agendar Cita</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modalProtesis">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Prótesis Removible</h3>
+            <p>Nuestro servicio de prótesis incluye:</p>
+            <ul>
+                <li>Evaluación y diagnóstico completo</li>
+                <li>Diseño personalizado de la prótesis</li>
+                <li>Pruebas de ajuste y comodidad</li>
+                <li>Ajustes post-entrega</li>
+            </ul>
+            <p>Duración del tratamiento: 2-3 semanas</p>
+            <button class="modal-button" onclick="window.location.href='cita.html?servicio=protesis'">Agendar Cita</button>
+        </div>
+    </div>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-icon">
+            <img src="logo.jpg" alt="Logo Luxury Dental Studio" class="header-logo">
+        </a>
+        <h1 class="clinica-title">Luxury Dental Studio</h1>
+        <div class="contact-icon" id="contactButton">
+            <i class="fas fa-headset"></i>
+            <span>Contáctanos</span>
+        </div>
+        <div class="popup" id="contactPopup">
+            <div class="popup-close" id="closePopup">&times;</div>
+            <h3><i class="fas fa-address-book"></i> Nuestras Redes Sociales</h3>
+            <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank">
+                <i class="fab fa-instagram fa-lg"></i> @luxurydentalstudio_
+            </a>
+            <a href="https://www.facebook.com/share/16Trm61wMM/" class="social-link" target="_blank">
+                <i class="fab fa-facebook fa-lg"></i> Luxury Dental Studio
+            </a>
+            <a href="https://wa.me/528337558734" target="_blank" class="social-link">
+                <i class="fab fa-whatsapp fa-lg"></i> 833 755 8734
+            </a>
+        </div>
+    </header>
+
+    <div class ="tag-list">
+        <div class = "inner">
+            <div class ="tag" onclick="location.href='#promociones'"><span>•</span>
+            2 LIMPIEZAS DENTALES POR $800</div>
+            <div class ="tag" onclick="location.href='#promociones'"><span>•</span>
+            BLANQUEAMIENTO DENTAL -30%</div>
+            <div class ="tag" onclick="location.href='#promociones'"><span>•</span>
+            PRÓTESIS REMOVIBLE -15%</div>
+            <!-- Elementos duplicados para el efecto continuo -->
+            <div class ="tag" onclick="location.href='#promociones'"><span>•</span>
+            2 LIMPIEZAS DENTALES POR $800</div>
+            <div class ="tag" onclick="location.href='#promociones'"><span>•</span>
+            BLANQUEAMIENTO DENTAL -30%</div>
+            <div class ="tag" onclick="location.href='#promociones'"><span>•</span>
+            PRÓTESIS REMOVIBLE -15%</div>
+        </div>
+    </div>
+
+    <div class="welcome-section">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Visita_odontoiatrica.jpg" alt="Consultorio Dental" class="welcome-image">
+        <div class="welcome-text">
+            <h2>Tu sonrisa es nuestra prioridad</h2>
+            <p>Bienvenido a Luxury Dental Studio. Hemos creado un santuario de salud bucal, un lugar tranquilo y elegante donde cada detalle está pensado para tu comodidad y confianza. Nuestro equipo de especialistas está listo para brindarte la atención de más alta calidad, con tratamientos personalizados para ti y tu familia.
+
+                <br><br> Agenda tu cita hoy y vive una atención dental verdaderamente cómoda.</p>
+            <button class="cita-button" onclick="window.location.href='cita.html'">AGENDA TU CITA AHORA</button>
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <div class="column left" onclick="window.location.href='doctores.html'">
+            <h2>Nuestros Profesionales</h2>
+            <img src="https://images.vexels.com/media/users/3/146286/isolated/preview/e19da03c124721813183158a2bd91bf1-doctor-tenencia-libro-silueta.png" alt="Silueta de Doctor">
+            <button class="column-button">Ver Especialistas →</button>
+        </div>
+        <div class="column right" onclick="window.location.href='procedimientos.html'">
+            <h2>Nuestros Servicios</h2> <br>
+            <img src="https://cdn-icons-png.flaticon.com/512/819/819229.png" alt="Silueta de Procedimientos"><br>
+            <button class="column-button">Explorar Servicios →</button>
+        </div>
+    </div>
+    <section class="historia-section">
+        <div class="historia-content">
+            <h2 class="historia-title">Una Nueva Era para tu Sonrisa</h2>
+            <p class="historia-text">
+                Luxury Dental Studio abrió sus puertas el 15 de diciembre de 2024 con una clara visión: ser la promesa de una experiencia dental excepcional. Nacimos como un espacio completamente nuevo, elegante y diseñado enteramente pensando en tu máximo confort. Somos un consultorio con gran potencial, donde la atención experta y tu bienestar se unen para cuidar de tu sonrisa de una forma única, cómoda y con el toque de lujo que mereces.
+            </p>
+        </div>
+        <img class="historia-image" src="https://clinicadentaldelgado.es/wp-content/uploads/2023/09/beneficios-odontologia-preventiva-1080x675.jpg" alt="Clínica Dental">
+    </section>
+    <section class="promociones-section" id="promociones">
+        <h2 class="promociones-title">Promociones Especiales</h2>
+        <div class="promociones-container">
+            <div class="promocion-card">
+                <span class="descuento-badge">2x1</span>
+                <h3 class="promocion-titulo">2 Limpiezas Dentales</h3>
+                <p class="precio-original">$1,000</p>
+                <p class="precio-descuento">$800</p>
+                <p class="promocion-descripcion">¡Aprovecha esta oferta especial! Dos limpiezas dentales completas por el precio de una.</p>
+                <a href="cita.html?servicio=limpieza" class="promocion-button">Reservar Ahora</a>
+            </div>
+
+            <div class="promocion-card">
+                <span class="descuento-badge">-30%</span>
+                <h3 class="promocion-titulo">Blanqueamiento Dental</h3>
+                <p class="precio-original">$3,000</p>
+                <p class="precio-descuento">$2,100</p>
+                <p class="promocion-descripcion">Blanqueamiento profesional con tecnología de última generación. Resultados garantizados.</p>
+                <a href="cita.html?servicio=blanqueamiento" class="promocion-button">Reservar Ahora</a>
+            </div>
+
+            <div class="promocion-card">
+                <span class="descuento-badge">-15%</span>
+                <h3 class="promocion-titulo">Prótesis Removible</h3>
+                <p class="precio-original">$5,000</p>
+                <p class="precio-descuento">$4,250</p>
+                <p class="promocion-descripcion">Prótesis dentales removibles de alta calidad, personalizadas para tu comodidad.</p>
+                <a href="cita.html?servicio=protesis" class="promocion-button">Reservar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="ubicacion-section">
+        <h2 class="ubicacion-title">Visítanos</h2>
+        <div class="mapa-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.0117841174306!2d-97.87996602815353!3d22.277543448170515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d7fb00158f570b%3A0x781ac404cbb28720!2sLuxury%20Dental%20Studio!5e0!3m2!1ses-419!2smx!4v1747507364632!5m2!1ses-419!2smx"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col logo-col">
+                <img src="logo.jpg" alt="Logo Luxury Dental Studio" class="footer-logo" style="max-width: 80px; margin-bottom: 10px;">
+                <div class="footer-brand">Luxury Dental Studio</div>
+                <div class="footer-slogan">Tu Sonrisa, Nuestra Prioridad.</div>
+            </div>
+            <div class="footer-col nav-col">
+                <div class="footer-heading">Navegación</div>
+                <ul class="footer-nav">
+                    <li><a href="main.html">Inicio</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="procedimientos.html">Servicios</a></li>
+                    <li><a href="doctores.html">Nuestro Equipo</a></li>
+                    <li><a href="#" id="footerContactLink">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <div class="footer-heading">Contacto</div>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Blv Loma Real 515, Lomas del Chairel, Tampico Tamps.</div>
+                <div class="footer-contact-item"><a href="https://wa.me/528337558734" target="_blank"><i class="fab fa-whatsapp"></i> 8337558734</a></div>
+                <div class="footer-heading" style="margin-top:18px;">Horario de Atención</div>
+                <div class="footer-contact-item">L-V: 10:00 AM - 2:00 PM y 4:00 PM - 8:00 PM</div>
+                <div class="footer-contact-item">Sáb: 10:00 AM - 4:00 PM</div>
+                <div class="footer-contact-item">Dom: Urgencias</div>
+            </div>
+            <div class="footer-col social-col">
+                <div class="footer-heading">Síguenos</div>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/share/16Trm61wMM/" target="_blank" class="footer-social"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-social"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            © 2025 Luxury Dental Studio. Todos los derechos reservados.
+        </div>
+    </footer>
+    <div class="overlay" id="overlay"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const historiaSection = document.querySelector('.historia-section');
+            const promocionesSection = document.querySelector('.promociones-section');
+
+            if (historiaSection) {
+                observer.observe(historiaSection);
+            }
+            if (promocionesSection) {
+                observer.observe(promocionesSection);
+            }
+
+            // Manejo del popup de contacto
+            const contactButton = document.getElementById('contactButton');
+            const closePopup = document.getElementById('closePopup');
+            const overlay = document.getElementById('overlay');
+            const contactPopup = document.getElementById('contactPopup');
+            const footerContactLink = document.getElementById('footerContactLink');
+
+            contactButton.addEventListener('click', function() {
+                overlay.style.display = 'block';
+                contactPopup.style.display = 'block';
+            });
+
+            if (footerContactLink) {
+                footerContactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    overlay.style.display = 'block';
+                    contactPopup.style.display = 'block';
+                });
+            }
+
+            closePopup.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+
+            overlay.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+        });
+    </script>
+
+    <!-- Modales para cada servicio -->
+    <div class="modal" id="modalLimpieza">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Limpieza Dental Profesional</h3>
+            <p>Nuestro servicio de limpieza dental incluye:</p>
+            <ul>
+                <li>Remoción de placa y sarro</li>
+                <li>Pulido dental profesional</li>
+                <li>Revisión de encías</li>
+                <li>Recomendaciones personalizadas</li>
+            </ul>
+            <p>Duración aproximada: 45 minutos</p>
+            <button class="modal-button" onclick="window.location.href='cita.html?servicio=limpieza'">Agendar Cita</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modalBlanqueamiento">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Blanqueamiento Dental</h3>
+            <p>Nuestro tratamiento de blanqueamiento incluye:</p>
+            <ul>
+                <li>Evaluación inicial del color dental</li>
+                <li>Blanqueamiento profesional con tecnología LED</li>
+                <li>Kit de mantenimiento para casa</li>
+                <li>Instrucciones post-tratamiento</li>
+            </ul>
+            <p>Duración aproximada: 1 hora</p>
+            <button class="modal-button" onclick="window.location.href='cita.html?servicio=blanqueamiento'">Agendar Cita</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modalProtesis">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3>Prótesis Removible</h3>
+            <p>Nuestro servicio de prótesis incluye:</p>
+            <ul>
+                <li>Evaluación y diagnóstico completo</li>
+                <li>Diseño personalizado de la prótesis</li>
+                <li>Pruebas de ajuste y comodidad</li>
+                <li>Ajustes post-entrega</li>
+            </ul>
+            <p>Duración del tratamiento: 2-3 semanas</p>
+            <button class="modal-button" onclick="window.location.href='cita.html?servicio=protesis'">Agendar Cita</button>
+        </div>
+    </div>
+</body>
+</html>

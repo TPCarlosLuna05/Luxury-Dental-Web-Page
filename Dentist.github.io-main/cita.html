@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda tu Cita | Luxury Dental Studio Tampico</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-secondary: #C5A028;
+            --gold-accent: #FFD700;
+            --gold-light: #F4E7BE;
+            --gold-dark: #996515;
+            --gold-gradient: linear-gradient(135deg,
+                var(--gold-primary),
+                var(--gold-secondary) 50%,
+                var(--gold-dark));
+            --gold-shine: linear-gradient(45deg,
+                rgba(212, 175, 55, 0.15),
+                rgba(255, 215, 0, 0.15),
+                rgba(153, 101, 21, 0.15));
+        }
+
+        header {
+            background: var(--gold-gradient);
+            height: 60px;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+
+        .contact-icon, .home-icon {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .submit-button {
+            background: var(--gold-gradient);
+        }
+
+        .footer-links a {
+            background: var(--gold-gradient);
+        }
+
+        .progress {
+            background: var(--gold-gradient);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .modal-button {
+            background: var(--gold-gradient);
+        }
+
+        header {
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .clinica-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            font-weight: 400; /* Cambiado de 600 a 400 para hacerlo más delgado */
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f9fb;
+        }
+
+        .form-container {
+            max-width: 100%;
+            margin: 0;
+            padding: 20px 40px; /* Reducido de 40px a 20px el padding superior */
+            background: white;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        form {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            min-width: 0; /* Previene que los elementos se expandan más allá de su contenedor */
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #21588E;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+        }
+
+        .submit-button {
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 50%;
+            margin: 20px auto 0;
+            grid-column: 1 / -1;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .home-icon:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid white;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .contact-icon {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            padding: 8px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-icon:hover {
+            transform: translateY(-50%) scale(1.05);
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .popup-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #21588E;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #f5f9fb;
+            color: #21588E;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #e0e9ef;
+            transform: translateX(5px);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background: linear-gradient(45deg, #333333, #444444);
+            color: #ffffff;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .footer-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        .footer-contact {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #21588E;
+            text-align: center;
+            margin-bottom: 20px; /* Reducido de 30px a 20px */
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .progress-container {
+            max-width: 1400px;
+            margin: 0 auto 20px; /* Reducido de 30px a 20px */
+            padding: 0 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: #21588E;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal-title {
+            color: #21588E;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .modal-message {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .modal-button {
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Asegurar que los modales y popups estén por encima del overlay */
+        .popup, .modal {
+            z-index: 1000;
+        }
+
+        /* --- FOOTER NUEVO --- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0 10px 0;
+            background: none;
+        }
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #fff;
+        }
+        .logo-col {
+            align-items: flex-start;
+        }
+        .footer-logo {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .footer-slogan {
+            font-size: 1em;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .footer-heading {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+            font-size: 1.1em;
+        }
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-nav li {
+            margin-bottom: 8px;
+        }
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-nav a:hover {
+            color: #ffd700;
+        }
+        .footer-contact-item {
+            margin-bottom: 7px;
+            font-size: 0.98em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-contact-item a:hover {
+            color: #ffd700;
+        }
+        .footer-social-links {
+            display: flex;
+            gap: 18px;
+        }
+        .footer-social {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.2s;
+        }
+        .footer-social:hover {
+            color: #ffd700;
+        }
+        .footer-bar {
+            text-align: center;
+            color: #fff;
+            background: none;
+            padding: 15px 0 0 0;
+            font-size: 1em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 10px;
+        }
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 30px 0 5px 0;
+            }
+            .footer-col {
+                align-items: flex-start;
+            }
+        }
+        .header-logo {
+            height: 48px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-icon">
+            <img src="logo.jpg" alt="Logo Luxury Dental Studio" class="header-logo">
+        </a>
+        <h1 class="clinica-title">Luxury Dental Studio</h1>
+        <div class="contact-icon" id="contactButton">
+            <i class="fas fa-headset"></i>
+            <span>Contáctanos</span>
+        </div>
+        <div class="popup" id="contactPopup">
+            <div class="popup-close" id="closePopup">&times;</div>
+            <h3><i class="fas fa-address-book"></i> Nuestras Redes Sociales</h3>
+            <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank">
+                <i class="fab fa-instagram fa-lg"></i> @luxurydentalstudio_
+            </a>
+            <a href="https://www.facebook.com/share/16Trm61wMM/" class="social-link" target="_blank">
+                <i class="fab fa-facebook fa-lg"></i> Luxury Dental Studio
+            </a>
+            <a href="https://wa.me/528337558734" target="_blank" class="social-link">
+                <i class="fab fa-whatsapp fa-lg"></i> 833 755 8734
+            </a>
+        </div>
+        </header>   <div class="form-container">
+        <h2 class="form-title">Agendar Nueva Cita</h2>
+
+        <div class="progress-container">
+            <div class="progress-text">Progreso del formulario: <span id="progress-percentage">0%</span></div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+
+        <!-- Búsqueda de paciente por teléfono -->
+        <div class="form-group full-width" style="max-width: 1400px; margin: 0 auto 20px; display: flex; gap: 10px; align-items: flex-end;">
+            <div style="flex-grow: 1;">
+                <label for="telefonoBusqueda">Buscar paciente por teléfono:</label>
+                <input type="tel" id="telefonoBusqueda" placeholder="Ingresa tu número a 10 dígitos" maxlength="10">
+            </div>
+            <button type="button" id="buscarBtn" class="modal-button" style="margin: 0; height: 46px;">Buscar</button>
+        </div>
+        <p id="mensajeBusqueda" style="text-align: center; margin: 10px 0; font-weight: bold; max-width: 1400px; margin-left: auto; margin-right: auto;"></p>        <form id="citaForm">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="servicio">Tipo de Servicio</label>
+                <select id="servicio" name="servicio" required>
+                    <option value="">Seleccione un servicio</option>
+                    <option value="limpieza">2 Limpiezas Dentales por $800</option>
+                    <option value="blanqueamiento">Blanqueamiento Dental -30%</option>
+                    <option value="protesis">Prótesis Removible -15%</option>
+                    <option value="ortodoncia">Ortodoncia</option>
+                    <option value="implantes">Implantes Dentales</option>
+                    <option value="endodoncia">Endodoncia</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha">Fecha Deseada</label>
+                <input type="date" id="fecha" name="fecha" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hora">Hora Preferida</label>
+                <input type="time" id="hora" name="hora" required>
+            </div>
+
+            <button type="submit" class="submit-button">Confirmar Cita</button>
+        </form>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3 class="modal-title">¡Cita Agendada!</h3>
+            <p id="modalMessage" class="modal-message"></p>
+            <button class="modal-button" onclick="window.location.href='index.html'">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col logo-col">
+                <img src="logo.jpg" alt="Logo Luxury Dental Studio" class="footer-logo" style="max-width: 80px; margin-bottom: 10px;">
+                <div class="footer-brand">Luxury Dental Studio</div>
+                <div class="footer-slogan">Tu Sonrisa, Nuestra Prioridad.</div>
+            </div>
+            <div class="footer-col nav-col">
+                <div class="footer-heading">Navegación</div>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="procedimientos.html">Servicios</a></li>
+                    <li><a href="doctores.html">Nuestro Equipo</a></li>
+                    <li><a href="#" id="footerContactLink">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <div class="footer-heading">Contacto</div>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Blv Loma Real 515, Lomas del Chairel, Tampico Tamps.</div>
+                <div class="footer-contact-item"><a href="https://wa.me/528337558734" target="_blank"><i class="fab fa-whatsapp"></i> 8337558734</a></div>
+                <div class="footer-heading" style="margin-top:18px;">Horario de Atención</div>
+                <div class="footer-contact-item">L-V: 10:00 AM - 2:00 PM y 4:00 PM - 8:00 PM</div>
+                <div class="footer-contact-item">Sáb: 10:00 AM - 4:00 PM</div>
+                <div class="footer-contact-item">Dom: Urgencias</div>
+            </div>
+            <div class="footer-col social-col">
+                <div class="footer-heading">Síguenos</div>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/share/16Trm61wMM/" target="_blank" class="footer-social"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-social"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            © 2025 Luxury Dental Studio. Todos los derechos reservados.
+        </div>
+    </footer>
+    <div class="overlay" id="overlay"></div>    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('citaForm');
+            const progress = document.getElementById('progress');
+            const progressText = document.getElementById('progress-percentage');
+            const requiredFields = form.querySelectorAll('[required]');
+            const totalFields = requiredFields.length;
+            const mensajeBusqueda = document.getElementById('mensajeBusqueda');
+            const buscarBtn = document.getElementById('buscarBtn');
+
+            // Función para buscar paciente por teléfono
+            async function buscarPacientePorTelefono(telefono) {
+                try {
+                    const response = await fetch(`https://dentist-app-0fcf42a43c96.herokuapp.com/api/pacientes/telefono/${telefono}`);
+                    
+                    if (!response.ok) {
+                        if (response.status === 404) {
+                            // El paciente no existe, se podría mostrar un formulario para crear uno nuevo
+                            return { existe: false, mensaje: 'Paciente no encontrado' };
+                        }
+                        throw new Error(`Error HTTP: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    return { 
+                        existe: true,
+                        paciente: data.data,
+                        mensaje: 'Paciente encontrado' 
+                    };
+                } catch (error) {
+                    console.error('Error al buscar paciente:', error);
+                    return { existe: false, error: error.message };
+                }
+            }            // Función para crear un nuevo paciente
+            async function crearPaciente(datosPaciente) {
+                try {
+                    const response = await fetch('https://dentist-app-0fcf42a43c96.herokuapp.com/api/pacientes', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(datosPaciente)
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    return { 
+                        exito: true,
+                        paciente: data.data,
+                        mensaje: 'Paciente registrado correctamente' 
+                    };
+                } catch (error) {
+                    console.error('Error al registrar paciente:', error);
+                    return { exito: false, error: error.message };
+                }
+            }
+              // Función para crear una nueva cita
+            async function crearCita(datosCita) {
+                try {
+                    const response = await fetch('https://dentist-app-0fcf42a43c96.herokuapp.com/api/generarcitaweb', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(datosCita)
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (!response.ok) {
+                        // Mostrar los detalles específicos del error
+                        console.error('Detalles del error ' + response.status + ':', data);
+                        throw new Error(`Error HTTP ${response.status}: ${JSON.stringify(data.errors || data.message)}`);
+                    }
+                    
+                    return { 
+                        exito: true,
+                        cita: data.data,
+                        mensaje: 'Cita agendada correctamente' 
+                    };
+                } catch (error) {
+                    console.error('Error al agendar cita:', error);
+                    return { exito: false, error: error.message };
+                }
+            }
+
+            // Búsqueda de paciente al hacer clic en el botón
+            buscarBtn.addEventListener('click', async () => {
+                const telefono = document.getElementById('telefonoBusqueda').value.trim();
+                
+                if (!telefono || telefono.length < 10) {
+                    mensajeBusqueda.textContent = 'Por favor, introduce un número de teléfono válido (10 dígitos).';
+                    mensajeBusqueda.style.color = '#dc3545';
+                    return;
+                }
+                
+                mensajeBusqueda.textContent = 'Buscando paciente...';
+                mensajeBusqueda.style.color = '#007bff';
+                
+                const resultado = await buscarPacientePorTelefono(telefono);
+                  if (resultado.existe) {
+                    // Paciente encontrado, mostramos sus datos
+                    document.getElementById('nombre').value = resultado.paciente.nombre || '';
+                    document.getElementById('apellidos').value = resultado.paciente.apellidos || '';
+                    document.getElementById('telefono').value = resultado.paciente.telefono || '';
+                    document.getElementById('correo').value = resultado.paciente.correo || '';
+                    
+                    // Mensaje de confirmación
+                    mensajeBusqueda.textContent = '¡Paciente encontrado! Los campos se han rellenado automáticamente.';
+                    mensajeBusqueda.style.color = '#28a745';
+                } else {
+                    // Paciente no encontrado
+                    document.getElementById('telefono').value = telefono;
+                    mensajeBusqueda.textContent = 'No encontramos un registro con este teléfono. Por favor, completa el formulario para registrarte.';
+                    mensajeBusqueda.style.color = '#ffc107';
+                    
+                    // Limpiar otros campos por si acaso
+                    document.getElementById('nombre').value = '';
+                    document.getElementById('apellidos').value = '';
+                    document.getElementById('correo').value = '';
+                }
+                
+                // Actualizar la barra de progreso después de llenar los campos
+                updateProgress();
+            });
+
+            // Validación del número de teléfono para la búsqueda
+            const telefonoBusqueda = document.getElementById('telefonoBusqueda');
+            telefonoBusqueda.addEventListener('input', function(e) {
+                let valor = e.target.value.replace(/\D/g, '');
+                if (valor.length > 10) {
+                    valor = valor.slice(0, 10);
+                }
+                e.target.value = valor;
+            });
+
+            function updateProgress() {
+                let filledFields = 0;
+                requiredFields.forEach(field => {
+                    if (field.value.trim() !== '') {
+                        filledFields++;
+                    }
+                });
+
+                const percentage = Math.round((filledFields / totalFields) * 100);
+                progress.style.width = percentage + '%';
+                progressText.textContent = percentage + '%';
+            }
+
+            requiredFields.forEach(field => {
+                field.addEventListener('input', updateProgress);
+                field.addEventListener('change', updateProgress);
+            });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const servicio = urlParams.get('servicio');
+            if (servicio) {
+                const servicioSelect = document.getElementById('servicio');
+                servicioSelect.value = servicio;
+                servicioSelect.dispatchEvent(new Event('change'));
+            }            form.addEventListener('submit', async function(e) {                e.preventDefault();
+
+                const nombre = document.getElementById('nombre').value;
+                const apellidos = document.getElementById('apellidos').value;
+                const telefono = document.getElementById('telefono').value;
+                const correo = document.getElementById('correo').value;
+                const servicio = document.getElementById('servicio').value;
+                const fecha = document.getElementById('fecha').value;
+                const hora = document.getElementById('hora').value;
+                const fecha_registro = new Date().toISOString().split('T')[0]; // Formato YYYY-MM-DD
+                
+                // Buscar paciente para verificar si existe
+                const resultado = await buscarPacientePorTelefono(telefono);
+                  // Si el paciente no existe, lo registramos primero
+                if (!resultado.existe) {
+                    mensajeBusqueda.textContent = 'Registrando nuevo paciente...';
+                    mensajeBusqueda.style.color = '#007bff';
+                    
+                    const datosPaciente = {
+                        nombre: nombre,
+                        apellidos: apellidos,
+                        telefono: telefono,
+                        correo: correo,
+                        fecha_registro: fecha_registro
+                    };
+                    
+                    const resultadoRegistro = await crearPaciente(datosPaciente);
+                    
+                    if (!resultadoRegistro.exito) {
+                        mensajeBusqueda.textContent = 'Error al registrar el paciente. Por favor, inténtalo de nuevo.';
+                        mensajeBusqueda.style.color = '#dc3545';
+                        return;
+                    }
+                    
+                    mensajeBusqueda.textContent = 'Paciente registrado correctamente.';
+                    mensajeBusqueda.style.color = '#28a745';
+                    
+                    // Actualizar resultado para tener el ID del paciente recién creado
+                    if (resultadoRegistro.paciente) {
+                        resultado.paciente = resultadoRegistro.paciente;
+                        resultado.existe = true;
+                    }
+                }
+
+                // Crear la cita usando el ID del paciente
+                if (resultado.existe && resultado.paciente) {
+                    mensajeBusqueda.textContent = 'Agendando cita...';
+                    mensajeBusqueda.style.color = '#007bff';
+                      const pacienteId = resultado.paciente.id || resultado.paciente._id;
+                    const servicioId = typeof servicio === 'object' ? servicio._id || servicio.id : servicio;
+                    
+                    const datosCita = {
+                        id_paciente: pacienteId,
+                        id_servicio: servicioId,
+                        fecha: fecha,
+                        hora: hora,
+                        estado: 'Pendiente'
+                    };
+                    
+                    const resultadoCita = await crearCita(datosCita);
+                    
+                    if (!resultadoCita.exito) {
+                        mensajeBusqueda.textContent = 'Error al agendar la cita. Por favor, inténtalo de nuevo.';
+                        mensajeBusqueda.style.color = '#dc3545';
+                        return;
+                    }
+                    
+                    mensajeBusqueda.textContent = 'Cita agendada correctamente.';
+                    mensajeBusqueda.style.color = '#28a745';
+                } else {
+                    mensajeBusqueda.textContent = 'Error al identificar al paciente para la cita.';
+                    mensajeBusqueda.style.color = '#dc3545';
+                    return;
+                }
+                
+                // Mostrar el modal de confirmación
+                const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                const mensaje = `¡Perfecto! Nos vemos el ${fechaFormateada} a las ${hora}`;
+                document.getElementById('modalMessage').textContent = mensaje;
+                document.getElementById('confirmationModal').style.display = 'block';
+                
+                // Reiniciar campos
+                form.reset();
+                document.getElementById('telefonoBusqueda').value = '';
+                mensajeBusqueda.textContent = '';
+                updateProgress();
+            });
+
+            // Manejo del popup de contacto
+            const contactButton = document.getElementById('contactButton');
+            const closePopup = document.getElementById('closePopup');
+            const overlay = document.getElementById('overlay');
+            const contactPopup = document.getElementById('contactPopup');
+            const footerContactLink = document.getElementById('footerContactLink');
+
+            // Validar fecha para que no se pueda seleccionar días pasados
+            const fechaInput = document.getElementById('fecha');
+            const today = new Date().toISOString().split('T')[0];
+            fechaInput.setAttribute('min', today);
+
+            // Validar hora dentro del horario de atención (9:00 - 18:00)
+            const horaInput = document.getElementById('hora');
+            horaInput.setAttribute('min', '09:00');
+            horaInput.setAttribute('max', '18:00');
+
+            // Manejo del popup de contacto
+            contactButton.addEventListener('click', function() {
+                overlay.style.display = 'block';
+                contactPopup.style.display = 'block';
+            });
+
+            if (footerContactLink) {
+                footerContactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    overlay.style.display = 'block';
+                    contactPopup.style.display = 'block';
+                });
+            }
+
+            closePopup.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+
+            overlay.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                contactPopup.style.display = 'none';
+            });
+
+            // Cerrar modales con la tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    contactPopup.style.display = 'none';
+                    document.getElementById('confirmationModal').style.display = 'none';
+                    overlay.style.display = 'none';
+                }
+            });
+
+            // Validación del número de teléfono
+            const telefonoInput = document.getElementById('telefono');
+            telefonoInput.addEventListener('input', function(e) {
+                let valor = e.target.value.replace(/\D/g, '');
+                if (valor.length > 10) {
+                    valor = valor.slice(0, 10);
+                }
+                e.target.value = valor;
+            });            // Cargar servicios desde la API
+            async function cargarServicios() {
+                try {
+                    const response = await fetch('https://dentist-app-0fcf42a43c96.herokuapp.com/api/servicios');
+                    
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    const serviciosSelect = document.getElementById('servicio');
+                    
+                    // Limpiar opciones actuales excepto la primera (placeholder)
+                    while (serviciosSelect.options.length > 1) {
+                        serviciosSelect.remove(1);
+                    }
+                    
+                    // Agregar las opciones desde la API
+                    if (data.data && Array.isArray(data.data)) {
+                        data.data.forEach(servicio => {
+                            const option = document.createElement('option');
+                            option.value = servicio.id || servicio._id || servicio.nombre;
+                            option.textContent = servicio.nombre + (servicio.precio ? ` - $${servicio.precio}` : '');
+                            if (servicio.descuento) {
+                                option.textContent += ` -${servicio.descuento}%`;
+                            }
+                            serviciosSelect.appendChild(option);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error al cargar servicios:', error);
+                    // Si hay error, mantenemos las opciones predeterminadas
+                }
+            }
+            
+            // Cargar servicios al iniciar la página
+            cargarServicios();
+
+            // Actualizar la barra de progreso al cargar la página
+            updateProgress();
+        });
+    </script>
+</body>
+</html>

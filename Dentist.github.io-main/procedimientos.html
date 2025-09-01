@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios Dentales | Luxury Dental Studio Tampico</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-secondary: #C5A028;
+            --gold-accent: #FFD700;
+            --gold-light: #F4E7BE;
+            --gold-dark: #996515;
+            --gold-gradient: linear-gradient(135deg,
+                var(--gold-primary),
+                var(--gold-secondary) 50%,
+                var(--gold-dark));
+            --gold-shine: linear-gradient(45deg,
+                rgba(212, 175, 55, 0.15),
+                rgba(255, 215, 0, 0.15),
+                rgba(153, 101, 21, 0.15));
+        }
+
+        header {
+            background: var(--gold-gradient);
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+
+        .clinica-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #21588E;
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .home-icon:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .contact-icon {
+            position: absolute;
+            right: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            background: rgba(212, 175, 55, 0.15);
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-icon:hover {
+            transform: translateY(-50%) scale(1.05);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        footer {
+            background: linear-gradient(45deg, #333333, #444444);
+            color: #ffffff;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: var(--gold-gradient);
+        }
+
+        .footer-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            color: #ffffff;
+        }
+
+        .footer-contact {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f9fb;
+        }
+
+        .procedures-container {
+            padding: 20px 40px; /* Reducido de 60px a 20px */
+            background: none;
+            min-height: calc(100vh - 90px - 200px);
+        }
+
+        .procedures-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #525252;
+            text-align: center;
+            margin-bottom: 30px; /* Reducido de 50px a 30px */
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .procedures-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--gold-primary), var(--gold-secondary));
+        }
+
+        .procedures-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Cambiado a 3 columnas */
+            gap: 20px; /* Reducido el espacio entre cards */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px; /* Reducido de 20px a 10px */
+        }
+
+        .procedure-card {
+            background: linear-gradient(135deg, white, var(--gold-light));
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-left: 2px solid var(--gold-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            max-width: 350px; /* Ancho máximo más pequeño */
+        }
+
+        .procedure-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(47, 160, 173, 0.2);
+        }
+
+        .procedure-image {
+            width: 100%;
+            height: 200px; /* Altura reducida */
+            object-fit: cover;
+            border-bottom: 3px solid var(--gold-primary);
+            transition: transform 0.5s ease;
+        }
+
+        .procedure-card:hover .procedure-image {
+            transform: scale(1.05);
+        }
+
+        .procedure-content {
+            padding: 15px; /* Padding reducido */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .procedure-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            color: var(--gold-primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--gold-secondary);
+            padding-bottom: 10px;
+            width: fit-content;
+        }
+
+        .procedure-description, .procedure-details {
+            display: block; /* Cambiar de 'none' a 'block' */
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .info-button {
+            background: var(--gold-gradient);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .info-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(33, 88, 142, 0.2);
+        }
+
+        .procedure-duration {
+            color: #666;
+            font-size: 0.9em;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .procedure-price {
+            background: var(--gold-gradient);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px; /* Ajustar margen ya que no hay botón */
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .procedure-price:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .procedure-price:hover:before {
+            left: 100%;
+        }
+
+        .procedure-price span {
+            font-size: 0.8em;
+            display: block;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 1200px) {
+            .procedures-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .procedures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Estilos para el popup de información */
+        .info-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 600px;
+            padding: 40px;
+        }
+
+        .info-popup-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: var(--gold-primary);
+        }
+
+        /* Modificar el contenido de las cards */
+        .procedure-card .procedure-content {
+            text-align: center;
+        }
+
+        /* Estilos para el popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .popup-close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #21588E;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #f5f9fb;
+            color: var(--gold-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #e0e9ef;
+            transform: translateX(5px);
+        }
+
+        .info-popup .procedure-name {
+            color: var(--gold-primary);
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--gold-secondary);
+            padding-bottom: 10px;
+        }
+
+        .info-popup .procedure-description {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .info-popup .procedure-details {
+            color: #666;
+        }
+
+        .info-popup .procedure-details strong {
+            color: #21588E;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .info-popup ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-popup li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .info-popup li:before {
+            content: '•';
+            color: var(--gold-primary);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Estilos para el overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            backdrop-filter: blur(3px);
+        }
+
+        /* Ajustar el z-index del popup para que esté por encima del overlay */
+        .info-popup {
+            z-index: 1000;
+        }
+
+        /* --- FOOTER NUEVO --- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0 10px 0;
+            background: none;
+        }
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #fff;
+        }
+        .logo-col {
+            align-items: flex-start;
+        }
+        .footer-logo {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .footer-slogan {
+            font-size: 1em;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .footer-heading {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd700;
+            font-size: 1.1em;
+        }
+        .footer-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-nav li {
+            margin-bottom: 8px;
+        }
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-nav a:hover {
+            color: #ffd700;
+        }
+        .footer-contact-item {
+            margin-bottom: 7px;
+            font-size: 0.98em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-contact-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-contact-item a:hover {
+            color: #ffd700;
+        }
+        .footer-social-links {
+            display: flex;
+            gap: 18px;
+        }
+        .footer-social {
+            color: #fff;
+            font-size: 1.5em;
+            transition: color 0.2s;
+        }
+        .footer-social:hover {
+            color: #ffd700;
+        }
+        .footer-bar {
+            text-align: center;
+            color: #fff;
+            background: none;
+            padding: 15px 0 0 0;
+            font-size: 1em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 10px;
+        }
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                padding: 30px 0 5px 0;
+            }
+            .footer-col {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+        <h1 class="clinica-title">Luxury Dental Studio</h1>
+        <div class="contact-icon" id="contactButton">
+            <i class="fas fa-headset"></i>
+            <span>Contáctanos</span>
+        </div>
+        <div class="popup" id="contactPopup">
+            <div class="popup-close" id="closePopup">&times;</div>
+            <h3><i class="fas fa-address-book"></i> Nuestras Redes Sociales</h3>
+            <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank">
+                <i class="fab fa-instagram fa-lg"></i> @luxurydentalstudio_
+            </a>
+            <a href="https://www.facebook.com/share/16Trm61wMM/" class="social-link" target="_blank">
+                <i class="fab fa-facebook fa-lg"></i> Luxury Dental Studio
+            </a>
+            <a href="https://wa.me/528337558734" target="_blank" class="social-link">
+                <i class="fab fa-whatsapp fa-lg"></i> 833 755 8734
+            </a>
+        </div>
+    </header>
+
+    <div class="procedures-container">
+        <h2 class="procedures-title">Nuestros Servicios</h2>
+        <div class="procedures-grid">
+            <div class="procedure-card">
+                <img src="https://dentistatijuana.com/wp-content/uploads/2024/10/te-decimos-que-incluye-una-consulta-dental-en-la-actualidad.webp" alt="Consulta" class="procedure-image">
+                
+                <div class="procedure-content">
+                    
+                    <h3 class="procedure-name">Consulta General</h3>
+                    
+                    <button class="info-button" onclick="showProcedureInfo('consulta')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://tiiz.es/wp-content/uploads/2021/01/Radiografia-dental.png" alt="Radiografías" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Radiografías</h3>
+                    <button class="info-button" onclick="showProcedureInfo('radiografias')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://dentalproject.es/wp-content/uploads/2022/10/AdobeStock_255770370-scaled-e1664987765243.jpeg" alt="Limpieza" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Limpieza Dental</h3>
+                    <button class="info-button" onclick="showProcedureInfo('limpieza')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://laclinicaroma.com.mx/wp-content/uploads/2019/03/resina-de-alta-estetica.jpg" alt="Resinas" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Resinas</h3>
+                    <button class="info-button" onclick="showProcedureInfo('resinas')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://clinicadentaliturralde.com/wp-content/uploads/2024/10/extraccion-muela-del-juicio.webp" alt="Extracciones" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Extracciones</h3>
+                
+                    <button class="info-button" onclick="showProcedureInfo('extracciones')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://www.clinicacsdental.com/wp-content/uploads/2024/02/Coronas-de-zirconio-5.jpg" alt="Coronas" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Coronas de Zirconia</h3>
+                    <button class="info-button" onclick="showProcedureInfo('coronas')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://dentisalut.com/wp-content/uploads/2020/09/ventajas-endodoncia.jpg" alt="Endodoncia" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Endodoncia</h3>
+                    <button class="info-button" onclick="showProcedureInfo('endodoncia')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://gonzalezycasado.com/wp-content/uploads/2019/10/FOTO-MUELA-DEL-JUICIO_3-1242x828.jpg" alt="Muelas del Juicio" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Cirugía Muelas del Juicio</h3>
+                    <button class="info-button" onclick="showProcedureInfo('muelasjuicio')">Más Información</button>
+                </div>
+            </div>
+
+            <div class="procedure-card">
+                <img src="https://cirujanopediatraencdmx.com/images/consulta-pediatrica-por-enfermedad.jpg" alt="Pediatría" class="procedure-image">
+                <div class="procedure-content">
+                    <h3 class="procedure-name">Consulta Pediátrica</h3>
+                    <button class="info-button" onclick="showProcedureInfo('pediatria')">Más Información</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popups de información -->
+    <div class="info-popup" id="procedureInfo">
+        <div class="info-popup-close" onclick="closeProcedureInfo()">&times;</div>
+        <div id="procedureInfoContent"></div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col logo-col">
+                <img src="logo.jpg" alt="Logo Luxury Dental Studio" class="footer-logo" style="max-width: 80px; margin-bottom: 10px;">
+                <div class="footer-brand">Luxury Dental Studio</div>
+                <div class="footer-slogan">Tu Sonrisa, Nuestra Prioridad.</div>
+            </div>
+            <div class="footer-col nav-col">
+                <div class="footer-heading">Navegación</div>
+                <ul class="footer-nav">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="procedimientos.html">Servicios</a></li>
+                    <li><a href="doctores.html">Nuestro Equipo</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <div class="footer-heading">Contacto</div>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> Blv Loma Real 515, Lomas del Chairel, Tampico Tamps.</div>
+                <div class="footer-contact-item"><a href="https://wa.me/528337558734" target="_blank"><i class="fab fa-whatsapp"></i> 8337558734</a></div>
+                <div class="footer-heading" style="margin-top:18px;">Horario de Atención</div>
+                <div class="footer-contact-item">L-V: 10:00 AM - 2:00 PM y 4:00 PM - 8:00 PM</div>
+                <div class="footer-contact-item">Sáb: 10:00 AM - 4:00 PM</div>
+                <div class="footer-contact-item">Dom: Urgencias</div>
+            </div>
+            <div class="footer-col social-col">
+                <div class="footer-heading">Síguenos</div>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/share/16Trm61wMM/" target="_blank" class="footer-social"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="https://www.instagram.com/luxurydentalstudio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="footer-social"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bar">
+            © 2025 Luxury Dental Studio. Todos los derechos reservados.
+        </div>
+    </footer>
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        // Funcionalidad del popup de contacto
+        const contactButton = document.getElementById('contactButton');
+        const contactPopup = document.getElementById('contactPopup');
+        const closePopup = document.getElementById('closePopup');
+        const overlay = document.getElementById('overlay');
+
+        contactButton.addEventListener('click', () => {
+            contactPopup.style.display = 'block';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevenir scroll cuando el modal está abierto
+        });
+
+        closePopup.addEventListener('click', () => {
+            contactPopup.style.display = 'none';
+            overlay.style.display = 'none';
+            document.body.style.overflow = ''; // Restaurar scroll
+        });
+
+        // Funcionalidad para los popups de información de procedimientos
+        function showProcedureInfo(procedure) {
+            const popup = document.getElementById('procedureInfo');
+            const overlay = document.getElementById('overlay');
+            const content = document.getElementById('procedureInfoContent');
+            
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevenir scroll cuando el modal está abierto
+
+            // Objeto con la información detallada de cada procedimiento
+            const procedureDetails = {
+                consulta: {
+                    title: "Consulta General",
+                    description: "Una evaluación completa y detallada de su salud bucal, donde nuestros especialistas realizan un diagnóstico exhaustivo para identificar cualquier problema dental y crear un plan de tratamiento personalizado.",
+                    details: [
+                        "Evaluación completa de dientes y encías",
+                        "Diagnóstico de problemas dentales",
+                        "Plan de tratamiento personalizado",
+                        "Recomendaciones de cuidado dental",
+                        "Presupuesto detallado de tratamientos necesarios"
+                    ],
+                    duration: "30 minutos",
+                    price: "$500",
+                    notes: "Incluye radiografía panorámica si es necesaria"
+                },
+                radiografias: {
+                    title: "Radiografías Dentales",
+                    description: "Utilizamos tecnología digital de última generación para obtener imágenes detalladas de sus dientes y estructuras óseas, permitiendo un diagnóstico preciso y seguro.",
+                    details: [
+                        "Radiografía panorámica digital",
+                        "Radiografía periapical",
+                        "Radiografía de aleta mordida",
+                        "Interpretación profesional",
+                        "Almacenamiento digital de imágenes"
+                    ],
+                    duration: "15 minutos",
+                    price: "$100",
+                    notes: "Sin radiación nociva gracias a nuestra tecnología digital"
+                },
+                limpieza: {
+                    title: "Limpieza Dental Profesional",
+                    description: "Una limpieza profunda y completa que elimina la placa, el sarro y las manchas superficiales, dejando sus dientes más blancos y saludables.",
+                    details: [
+                        "Remoción de placa y sarro",
+                        "Pulido dental profesional",
+                        "Limpieza de lengua",
+                        "Aplicación de flúor",
+                        "Recomendaciones de higiene personalizada"
+                    ],
+                    duration: "45 minutos",
+                    price: "$500",
+                    notes: "Recomendada cada 6 meses para mantener una salud dental óptima"
+                },
+                resinas: {
+                    title: "Resinas Estéticas",
+                    description: "Restauraciones dentales estéticas que combinan perfectamente con el color natural de sus dientes, ideales para reparar caries y mejorar la apariencia dental.",
+                    details: [
+                        "Material de resina de alta calidad",
+                        "Color personalizado a sus dientes",
+                        "Adhesión fuerte y duradera",
+                        "Acabado pulido y natural",
+                        "Garantía de 1 año"
+                    ],
+                    duration: "30-45 minutos",
+                    price: "$500",
+                    notes: "Ideal para caries pequeñas y medianas"
+                },
+                extracciones: {
+                    title: "Extracciones Dentales",
+                    description: "Procedimiento seguro y profesional para la extracción de dientes, realizado con técnicas modernas y anestesia local para su comodidad.",
+                    details: [
+                        "Evaluación previa completa",
+                        "Anestesia local",
+                        "Extracción cuidadosa",
+                        "Instrucciones post-extracción",
+                        "Control post-operatorio"
+                    ],
+                    duration: "30-45 minutos",
+                    price: "$500",
+                    notes: "Incluye medicamentos post-operatorios"
+                },
+                coronas: {
+                    title: "Coronas de Zirconia",
+                    description: "Coronas dentales de alta calidad fabricadas en zirconia, un material de última generación que ofrece durabilidad, estética y biocompatibilidad.",
+                    details: [
+                        "Diseño digital personalizado",
+                        "Material zirconia de alta resistencia",
+                        "Color natural y translúcido",
+                        "Ajuste preciso",
+                        "Garantía de 5 años"
+                    ],
+                    duration: "90 minutos",
+                    price: "$6,500",
+                    notes: "Incluye preparación dental y corona temporal"
+                },
+                endodoncia: {
+                    title: "Endodoncia",
+                    description: "Tratamiento de conducto profesional para salvar dientes dañados o infectados, realizado con tecnología de última generación para su comodidad.",
+                    details: [
+                        "Diagnóstico con radiografía digital",
+                        "Anestesia local",
+                        "Limpieza y desinfección del conducto",
+                        "Obturación del conducto",
+                        "Radiografía de control"
+                    ],
+                    duration: "60-90 minutos",
+                    price: "$2,800",
+                    notes: "Incluye corona temporal si es necesaria"
+                },
+                muelasjuicio: {
+                    title: "Cirugía de Muelas del Juicio",
+                    description: "Extracción profesional de muelas del juicio, realizada por especialistas con experiencia en cirugía oral, utilizando técnicas avanzadas para su comodidad.",
+                    details: [
+                        "Evaluación radiográfica completa",
+                        "Anestesia local",
+                        "Extracción quirúrgica",
+                        "Sutura absorbible",
+                        "Control post-operatorio"
+                    ],
+                    duration: "60-90 minutos",
+                    price: "$2,800",
+                    notes: "Incluye medicamentos y control post-operatorio"
+                },
+                pediatria: {
+                    title: "Consulta Pediátrica",
+                    description: "Atención dental especializada para niños, creando una experiencia positiva y divertida mientras cuidamos la salud dental de los más pequeños.",
+                    details: [
+                        "Evaluación dental completa",
+                        "Aplicación de flúor",
+                        "Instrucciones de higiene para padres",
+                        "Control de hábitos",
+                        "Recomendaciones de dieta"
+                    ],
+                    duration: "45 minutos",
+                    price: "$600",
+                    notes: "Incluye kit de higiene dental infantil"
+                }
+            };
+
+            const info = procedureDetails[procedure] || {
+                title: "Información del Procedimiento",
+                description: "Detalles próximamente...",
+                details: ["Consulte con nuestros especialistas para más información"]
+            };
+
+            content.innerHTML = `
+                <h3 class="procedure-name">${info.title}</h3>
+                <p class="procedure-description">${info.description}</p>
+                <div class="procedure-details">
+                    <p><strong>Duración:</strong> ${info.duration}</p>
+                    <p><strong>Precio:</strong> ${info.price}</p>
+                    ${info.notes ? `<p><strong>Notas adicionales:</strong> ${info.notes}</p>` : ''}
+                </div>
+                <button class="info-button" onclick="window.location.href='cita.html?servicio=${procedure}'">Agendar Cita</button>
+            `;
+        }
+
+        function closeProcedureInfo() {
+            const popup = document.getElementById('procedureInfo');
+            const overlay = document.getElementById('overlay');
+            
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+            document.body.style.overflow = ''; // Restaurar scroll
+        }
+
+        // Cerrar popups al hacer clic fuera de ellos
+        window.onclick = function(event) {
+            const overlay = document.getElementById('overlay');
+            const popup = document.getElementById('procedureInfo');
+            
+            if (event.target == overlay) {
+                contactPopup.style.display = 'none';
+                popup.style.display = 'none';
+                overlay.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>
